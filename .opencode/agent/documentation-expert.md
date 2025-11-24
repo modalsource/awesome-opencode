@@ -1,7 +1,6 @@
 ---
 description: Documentation specialist responsible for creating, maintaining, and reviewing Markdown documentation with expertise in technical writing and documentation standards
 mode: subagent
-model: anthropic/claude-sonnet-4-20250514
 temperature: 0.0
 tools:
   read: true
