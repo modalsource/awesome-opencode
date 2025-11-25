@@ -1,7 +1,6 @@
 ---
 description: Change management and Git branching strategy specialist responsible for release coordination, version control governance, and workflow optimization
 mode: subagent
-model: anthropic/claude-sonnet-4-20250514
 temperature: 0.0
 tools:
   read: true
