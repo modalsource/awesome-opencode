@@ -20,8 +20,8 @@ NC='\033[0m'
 
 # Header
 echo -e "${PURPLE}╔═══════════════════════════════════════════════════╗${NC}"
-echo -e "${PURPLE}║   📦 .opencode Update Script (Pro Version)      ║${NC}"
-echo -e "${PURPLE}║   Mantiene i tuoi file locali                    ║${NC}"
+echo -e "${PURPLE}║   📦 .opencode Update Script (Pro Version)        ║${NC}"
+echo -e "${PURPLE}║   Mantiene i tuoi file locali                     ║${NC}"
 echo -e "${PURPLE}╚═══════════════════════════════════════════════════╝${NC}"
 echo ""
 
