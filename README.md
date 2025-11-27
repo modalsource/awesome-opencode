@@ -9,6 +9,15 @@ This system enables consistent, reproducible, high-quality software development 
 
 ---
 
+## Getting Started
+To install and use this system in an existing project execute:
+
+```bash
+    curl -fsSL https://raw.githubusercontent.com/modalsource/awesome-opencode/refs/heads/main-modalsource/update-opencode-pro.sh | bash
+```
+
+---
+
 ## What This System Contains
 
 ### 1. Regulated Multi-Agent Team
