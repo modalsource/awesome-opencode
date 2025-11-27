@@ -13,7 +13,7 @@ This system enables consistent, reproducible, high-quality software development 
 To install and use this system in an existing project execute:
 
 ```bash
-    curl -fsSL https://raw.githubusercontent.com/modalsource/awesome-opencode/refs/heads/main-modalsource/update-opencode-pro.sh | bash
+curl -fsSL https://raw.githubusercontent.com/modalsource/awesome-opencode/refs/heads/main-modalsource/update-opencode-pro.sh | bash
 ```
 
 ---
