@@ -106,6 +106,26 @@ rsync -av \
     "$TARGET_FOLDER/" \
     | tee "$TEMP_DIR/rsync_output.txt"
 
+# Copia opencode.jsonc dalla root del repository
+CONFIG_FILE="opencode.jsonc"
+if [ -f "$TEMP_DIR/repo/$CONFIG_FILE" ]; then
+    echo -e "${GREEN}📋 Aggiornamento $CONFIG_FILE...${NC}"
+    if [ -f "$CONFIG_FILE" ]; then
+        # Backup del file esistente se diverso
+        if ! cmp -s "$TEMP_DIR/repo/$CONFIG_FILE" "$CONFIG_FILE"; then
+            cp "$CONFIG_FILE" "${CONFIG_FILE}.backup.$(date +%Y%m%d_%H%M%S)"
+            add_to_report "Backup $CONFIG_FILE creato"
+            echo -e "${YELLOW}   Backup del file esistente creato${NC}"
+        fi
+    fi
+    # Copia solo se il file remoto è più recente o locale non esiste
+    rsync -av --update "$TEMP_DIR/repo/$CONFIG_FILE" "$CONFIG_FILE" | tee -a "$TEMP_DIR/rsync_output.txt"
+    add_to_report "File $CONFIG_FILE aggiornato"
+else
+    echo -e "${YELLOW}⚠️  $CONFIG_FILE non trovato nel repository remoto${NC}"
+    add_to_report "ATTENZIONE: $CONFIG_FILE non presente nel remoto"
+fi
+
 # Snapshot post-aggiornamento
 find "$TARGET_FOLDER" -type f | sort > "$TEMP_DIR/snapshot_after.txt"
 FILE_COUNT_AFTER=$(wc -l < "$TEMP_DIR/snapshot_after.txt")
@@ -209,9 +229,9 @@ echo -e "${BLUE}💾 Report salvato in: ${REPORT_FILE}${NC}"
 # Git status
 echo ""
 echo -e "${GREEN}📊 Stato Git:${NC}"
-git status "$TARGET_FOLDER" --short
+git status "$TARGET_FOLDER" "$CONFIG_FILE" --short 2>/dev/null || git status "$TARGET_FOLDER" --short
 
-CHANGED_FILES=$(git status "$TARGET_FOLDER" --porcelain | wc -l)
+CHANGED_FILES=$(git status "$TARGET_FOLDER" "$CONFIG_FILE" --porcelain 2>/dev/null | wc -l || git status "$TARGET_FOLDER" --porcelain | wc -l)
 
 if [ "$CHANGED_FILES" -eq 0 ]; then
     echo -e "${GREEN}✅ Nessuna modifica Git. Tutto aggiornato!${NC}"
@@ -226,6 +246,10 @@ read -p "$(echo -e ${YELLOW}Committare le modifiche? [y/N]:${NC} )" -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     git add "$TARGET_FOLDER"
+    # Aggiungi anche opencode.jsonc se modificato
+    if [ -f "$CONFIG_FILE" ]; then
+        git add "$CONFIG_FILE" 2>/dev/null || true
+    fi
     
     # Messaggio commit con statistiche
     if [ -n "$LOCAL_ONLY" ]; then
