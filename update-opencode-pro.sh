@@ -111,16 +111,26 @@ CONFIG_FILE="opencode.jsonc"
 if [ -f "$TEMP_DIR/repo/$CONFIG_FILE" ]; then
     echo -e "${GREEN}📋 Aggiornamento $CONFIG_FILE...${NC}"
     if [ -f "$CONFIG_FILE" ]; then
-        # Backup del file esistente se diverso
+        # Verifica se i file sono diversi
         if ! cmp -s "$TEMP_DIR/repo/$CONFIG_FILE" "$CONFIG_FILE"; then
+            # Backup del file esistente
             cp "$CONFIG_FILE" "${CONFIG_FILE}.backup.$(date +%Y%m%d_%H%M%S)"
             add_to_report "Backup $CONFIG_FILE creato"
             echo -e "${YELLOW}   Backup del file esistente creato${NC}"
+            # Copia il file remoto (senza --update per forzare l'aggiornamento)
+            cp "$TEMP_DIR/repo/$CONFIG_FILE" "$CONFIG_FILE"
+            echo -e "${GREEN}   ✓ $CONFIG_FILE aggiornato dal remoto${NC}"
+            add_to_report "File $CONFIG_FILE aggiornato dal remoto"
+        else
+            echo -e "${BLUE}   $CONFIG_FILE già aggiornato (nessuna differenza)${NC}"
+            add_to_report "File $CONFIG_FILE già aggiornato"
         fi
+    else
+        # File locale non esiste, copia direttamente
+        cp "$TEMP_DIR/repo/$CONFIG_FILE" "$CONFIG_FILE"
+        echo -e "${GREEN}   ✓ $CONFIG_FILE copiato dal remoto${NC}"
+        add_to_report "File $CONFIG_FILE copiato (nuovo)"
     fi
-    # Copia solo se il file remoto è più recente o locale non esiste
-    rsync -av --update "$TEMP_DIR/repo/$CONFIG_FILE" "$CONFIG_FILE" | tee -a "$TEMP_DIR/rsync_output.txt"
-    add_to_report "File $CONFIG_FILE aggiornato"
 else
     echo -e "${YELLOW}⚠️  $CONFIG_FILE non trovato nel repository remoto${NC}"
     add_to_report "ATTENZIONE: $CONFIG_FILE non presente nel remoto"
