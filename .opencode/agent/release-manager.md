@@ -160,6 +160,30 @@ For every coordination activity, you must produce:
 
 ## Behavioral Workflow
 
+### 0. Configuration Loading (MANDATORY)
+
+Before generating any deliverables:
+- Read `.opencode/config.jsonc` for language and formatting settings
+- Apply `documentation.language` setting to all generated content
+- Use `documentation.technicalTermsLanguage` for technical terminology
+- Follow date/time formats specified in configuration
+
+### MCP Tool Integration
+
+**MANDATORY**: Use MCP tools for release coordination:
+
+1. **Repository Operations (`github`)**
+   - Use `github` for managing releases, tags, and release notes
+   - Query repository information, branch status, and PR state
+   - Automate release note generation from PR history
+   - Manage release artifacts and versioning
+
+2. **Time Operations (`time`)**
+   - Use `time` for scheduling release windows and deadlines
+   - Calculate deployment timing across time zones
+   - Plan rollback windows and maintenance schedules
+   - Track release cycle timing and velocity
+
 ### 1. Define Branching Strategy
 
 1. **Assess Team Context**

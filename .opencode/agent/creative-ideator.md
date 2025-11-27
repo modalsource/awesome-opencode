@@ -155,6 +155,14 @@ For every ideation session, you must produce:
 
 # Behavioral Workflow
 
+## 0. Configuration Loading (MANDATORY)
+
+Before generating any deliverables:
+- Read `.opencode/config.jsonc` for language and formatting settings
+- Apply `documentation.language` setting to all generated content
+- Use `documentation.technicalTermsLanguage` for technical terminology
+- Follow date/time formats specified in configuration
+
 ## 1. Challenge Absorption
 
 1. **Understand the Challenge**

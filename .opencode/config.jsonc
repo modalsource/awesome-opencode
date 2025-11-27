@@ -1,0 +1,240 @@
+{
+    // ============================================================================
+    // OPENCODE PROJECT CONFIGURATION
+    // ============================================================================
+    //
+    // This file contains project-wide settings that all agents must read and apply.
+    // It is the single source of truth for user preferences and project conventions.
+    //
+    // Location: .opencode/config.jsonc
+    // Referenced by: AGENTS.md Section 10 (Project Configuration)
+    //
+    // IMPORTANT FOR AGENTS:
+    // - Read this file BEFORE generating any documentation or user-facing content
+    // - Apply these settings consistently across all deliverables
+    // - Do NOT modify this file unless explicitly requested by the user
+    // - Escalate to @pm if settings conflict with task requirements
+    //
+    // ============================================================================
+    // ----------------------------------------------------------------------------
+    // DOCUMENTATION SETTINGS
+    // ----------------------------------------------------------------------------
+    // Controls language, formatting, and style for all generated documentation.
+    //
+    "documentation": {
+        // --------------------------------------------------------------------------
+        // PRIMARY LANGUAGE
+        // --------------------------------------------------------------------------
+        // The main language for all documentation content.
+        //
+        // Supported values (IETF BCP 47 language tags):
+        //   - "en-US" : English (United States)
+        //   - "en-GB" : English (United Kingdom)
+        //   - "it-IT" : Italian (Italy)
+        //   - "de-DE" : German (Germany)
+        //   - "fr-FR" : French (France)
+        //   - "es-ES" : Spanish (Spain)
+        //   - "pt-BR" : Portuguese (Brazil)
+        //   - "nl-NL" : Dutch (Netherlands)
+        //   - "pl-PL" : Polish (Poland)
+        //   - "ja-JP" : Japanese (Japan)
+        //   - "zh-CN" : Chinese (Simplified, China)
+        //   - "ko-KR" : Korean (South Korea)
+        //   - ... (any valid IETF BCP 47 tag)
+        //
+        // Default: "en-US"
+        //
+        "language": "it-IT",
+        // --------------------------------------------------------------------------
+        // TECHNICAL TERMS LANGUAGE
+        // --------------------------------------------------------------------------
+        // Language for technical terminology (API names, code references, etc.)
+        //
+        // Recommendation: Keep as "en" for consistency with international standards,
+        // even when the primary documentation language is different.
+        //
+        // Examples of technical terms that follow this setting:
+        //   - API, REST, GraphQL, SQL
+        //   - Variable names, function names, class names
+        //   - Framework/library names (React, Angular, .NET)
+        //   - HTTP methods (GET, POST, PUT, DELETE)
+        //   - Status codes and error messages in code
+        //
+        // Values: "en" (English) or same as documentation.language
+        // Default: "en"
+        //
+        "technicalTermsLanguage": "en",
+        // --------------------------------------------------------------------------
+        // DATE FORMAT
+        // --------------------------------------------------------------------------
+        // Format for dates in documentation (not code timestamps).
+        //
+        // Supported values:
+        //   - "ISO"      : 2024-01-15 (ISO 8601, recommended for international)
+        //   - "EU"       : 15/01/2024 (DD/MM/YYYY, European)
+        //   - "US"       : 01/15/2024 (MM/DD/YYYY, United States)
+        //   - "LONG_EU"  : 15 January 2024 (European long format)
+        //   - "LONG_US"  : January 15, 2024 (United States long format)
+        //
+        // Note: Code timestamps and logs always use ISO 8601 regardless of this setting.
+        // Default: "ISO"
+        //
+        "dateFormat": "ISO",
+        // --------------------------------------------------------------------------
+        // TIME FORMAT
+        // --------------------------------------------------------------------------
+        // Format for times in documentation.
+        //
+        // Supported values:
+        //   - "24h" : 14:30 (24-hour format)
+        //   - "12h" : 2:30 PM (12-hour format with AM/PM)
+        //
+        // Default: "24h"
+        //
+        "timeFormat": "24h",
+        // --------------------------------------------------------------------------
+        // TIMEZONE
+        // --------------------------------------------------------------------------
+        // Default timezone for documentation timestamps.
+        //
+        // Use IANA timezone identifiers:
+        //   - "UTC"
+        //   - "Europe/Rome"
+        //   - "America/New_York"
+        //   - "Asia/Tokyo"
+        //   - etc.
+        //
+        // Default: "UTC"
+        //
+        "timezone": "Europe/Rome"
+    },
+    // ----------------------------------------------------------------------------
+    // FORMATTING CONVENTIONS
+    // ----------------------------------------------------------------------------
+    // Controls text formatting and style conventions.
+    //
+    "formatting": {
+        // --------------------------------------------------------------------------
+        // MAXIMUM LINE LENGTH
+        // --------------------------------------------------------------------------
+        // Maximum characters per line in Markdown documentation.
+        // Longer lines will be wrapped for readability.
+        //
+        // Recommended: 80-120 characters
+        // Default: 120
+        //
+        "maxLineLength": 120,
+        // --------------------------------------------------------------------------
+        // NUMBER FORMAT LOCALE
+        // --------------------------------------------------------------------------
+        // Locale for number formatting (thousands separator, decimal separator).
+        //
+        // Examples:
+        //   - "en-US" : 1,234.56 (comma thousands, period decimal)
+        //   - "de-DE" : 1.234,56 (period thousands, comma decimal)
+        //   - "fr-FR" : 1 234,56 (space thousands, comma decimal)
+        //
+        // Default: follows documentation.language
+        //
+        "numberLocale": "it-IT",
+        // --------------------------------------------------------------------------
+        // CURRENCY
+        // --------------------------------------------------------------------------
+        // Default currency for financial documentation (pricing, budgets, etc.)
+        //
+        // Use ISO 4217 currency codes:
+        //   - "USD" : United States Dollar ($)
+        //   - "EUR" : Euro (€)
+        //   - "GBP" : British Pound (£)
+        //   - "JPY" : Japanese Yen (¥)
+        //   - etc.
+        //
+        // Default: "USD"
+        //
+        "currency": "EUR"
+    },
+    // ----------------------------------------------------------------------------
+    // NAMING CONVENTIONS
+    // ----------------------------------------------------------------------------
+    // Controls naming patterns for files, identifiers, and project artifacts.
+    //
+    "naming": {
+        // --------------------------------------------------------------------------
+        // DOCUMENTATION FILE NAMING STYLE
+        // --------------------------------------------------------------------------
+        // Style for generated documentation file names.
+        //
+        // Supported values:
+        //   - "kebab-case"  : my-file-name.md
+        //   - "snake_case"  : my_file_name.md
+        //   - "PascalCase"  : MyFileName.md
+        //   - "camelCase"   : myFileName.md
+        //   - "SCREAMING_SNAKE_CASE" : MY_FILE_NAME.MD
+        //
+        // Default: "kebab-case"
+        //
+        "docFileNamingStyle": "SCREAMING_SNAKE_CASE",
+        // --------------------------------------------------------------------------
+        // CODE FILES NAMING STYLE
+        // --------------------------------------------------------------------------
+        // Style for generated code file names.
+        //
+        // Supported values: same as docFileNamingStyle
+        // Default: "kebab-case"
+        //
+        "codeFileNamingStyle": "kebab-case",
+        // --------------------------------------------------------------------------
+        // DIRECTORY NAMING STYLE
+        // --------------------------------------------------------------------------
+        // Style for generated directory names.
+        //
+        // Supported values: same as docFileNamingStyle
+        // Default: "kebab-case"
+        //
+        "directoryNamingStyle": "kebab-case"
+    },
+    // ----------------------------------------------------------------------------
+    // AGENT BEHAVIOR OVERRIDES
+    // ----------------------------------------------------------------------------
+    // Fine-tune agent behavior for this project.
+    //
+    "agents": {
+        // --------------------------------------------------------------------------
+        // VERBOSE EXPLANATIONS
+        // --------------------------------------------------------------------------
+        // When true, agents provide more detailed explanations in documentation.
+        // When false, agents prefer concise, minimal documentation.
+        //
+        // Default: true
+        //
+        "verboseExplanations": true,
+        // --------------------------------------------------------------------------
+        // INCLUDE EXAMPLES
+        // --------------------------------------------------------------------------
+        // When true, agents include code examples in technical documentation.
+        //
+        // Default: true
+        //
+        "includeExamples": true,
+        // --------------------------------------------------------------------------
+        // AUTO-GENERATE TABLE OF CONTENTS
+        // --------------------------------------------------------------------------
+        // When true, agents add a table of contents to longer documents.
+        //
+        // Default: true
+        //
+        "autoTableOfContents": true
+    }
+    // ============================================================================
+    // ADDING NEW SETTINGS
+    // ============================================================================
+    //
+    // To add new project-wide settings:
+    // 1. Add the setting to the appropriate section above
+    // 2. Include clear comments explaining the setting
+    // 3. Provide default value and valid options
+    // 4. Update AGENTS.md Section 10 if the setting affects agent behavior
+    // 5. Notify relevant agents about the new setting
+    //
+    // ============================================================================
+}

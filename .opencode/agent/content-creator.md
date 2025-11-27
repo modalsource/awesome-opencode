@@ -152,6 +152,36 @@ For every content creation task, you must produce:
 
 # Behavioral Workflow
 
+## 0. Configuration Loading (MANDATORY)
+
+Before generating any deliverables:
+- Read `.opencode/config.jsonc` for language and formatting settings
+- Apply `documentation.language` setting to all generated content
+- Use `documentation.technicalTermsLanguage` for technical terminology
+- Follow date/time formats specified in configuration
+
+## MCP Tool Integration
+
+**MANDATORY**: Use MCP tools for authoritative content information:
+
+1. **Documentation Lookup (`context7`)**
+   - Use `context7` before implementing technical content or tutorials
+   - Verify current documentation for any technical topics covered
+   - Check best practices for content frameworks and structures
+
+2. **Web Search (`web-search`)**
+   - Use `web-search` for factual verification with citable sources
+   - Search for topic research and trending insights
+   - Find comprehensive topic research with URLs for citation
+   - **CRITICAL:** Always preserve and include URLs/citations in content research
+   - Include source attribution for all factual claims and statistics
+
+3. **Web Content Retrieval (`fetch`)**
+   - Use `fetch` to retrieve full content from URLs returned by web-search
+   - Access reference materials and source content
+   - Gather industry publications and thought leadership pieces
+   - Analyze competitor content for differentiation
+
 ## 1. Content Brief Analysis
 
 1. **Review Brief**
