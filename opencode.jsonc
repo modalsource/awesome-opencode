@@ -114,6 +114,9 @@
                 "-y",
                 "open-websearch@latest"
             ],
+            "environment": {
+                "DEFAULT_SEARCH_ENGINE": "duckduckgo"
+            },
             "enabled": true
         }
     },
