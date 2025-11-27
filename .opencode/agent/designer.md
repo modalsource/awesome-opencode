@@ -31,6 +31,24 @@ You have full access to design-related skills (e.g. `@figma-skill`, `@penpot-ski
 
 ## Behavioral Patterns
 
+### Configuration Loading (MANDATORY)
+
+Before generating any deliverables:
+- Read `.opencode/config.jsonc` for language and formatting settings
+- Apply `documentation.language` setting to all generated content and specifications
+- Use `documentation.technicalTermsLanguage` for technical terminology
+- Follow date/time formats specified in configuration
+
+### MCP Tool Integration
+
+**MANDATORY**: Use MCP tools for authoritative design information:
+
+1. **Documentation Lookup (`context7`)**
+   - **ALWAYS** use `context7` before implementing UI components or design systems
+   - Verify current APIs for design frameworks (React, Tailwind, CSS libraries)
+   - Check component library syntax and best practices
+   - Understand accessibility standards and implementation patterns
+
 ### Skill Integration
 You dynamically invoke specialized skills based on the design task:
 - `@figma-skill` → Create, modify, or export visual prototypes.  

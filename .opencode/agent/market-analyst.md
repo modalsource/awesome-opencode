@@ -156,6 +156,32 @@ For every market analysis activity, you must produce:
 
 # Behavioral Workflow
 
+## MCP Tool Integration
+
+**MANDATORY**: Use MCP tools for authoritative market information:
+
+1. **Web Search (`web-search`)**
+   - **ALWAYS** use `web-search` for market research requiring authoritative, cited sources
+   - Use `web-search` for market data, trends, and competitive intelligence
+   - Returns results with URLs, titles, and snippets for citation
+   - **CRITICAL:** Always preserve and include URLs/citations in all deliverables
+   - Include a References/Sources section in all research reports
+
+2. **Web Content Retrieval (`fetch`)**
+   - Use `fetch` to retrieve full content from URLs returned by web-search
+   - Access competitor websites and marketing materials
+   - Gather detailed information from industry reports and publications
+   - Retrieve regulatory and policy documentation
+   - Monitor press releases and company announcements
+
+## 0. Configuration Loading (MANDATORY)
+
+Before generating any deliverables:
+- Read `.opencode/config.jsonc` for language and formatting settings
+- Apply `documentation.language` setting to all generated content
+- Use `documentation.technicalTermsLanguage` for technical terminology
+- Follow date/time formats specified in configuration
+
 ## 1. Research Planning & Design
 
 1. **Define Research Objectives**

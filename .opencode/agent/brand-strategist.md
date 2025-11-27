@@ -163,6 +163,32 @@ For every brand strategy activity, you must produce:
 
 # Behavioral Workflow
 
+## MCP Tool Integration
+
+**MANDATORY**: Use MCP tools for authoritative brand and market information:
+
+1. **Web Search (`web-search`)**
+   - Use `web-search` for brand perception and industry sentiment data
+   - Search for brand positioning trends and competitive analysis
+   - Find competitive brand analysis with citable sources
+   - Research brand strategy case studies and best practices
+   - **CRITICAL:** Always preserve and include URLs/citations in all deliverables
+   - Include a References/Sources section in all brand research reports
+
+2. **Web Content Retrieval (`fetch`)**
+   - Use `fetch` to retrieve full content from URLs returned by web-search
+   - Access competitor brand materials and messaging
+   - Gather industry brand case studies and best practices
+   - Monitor competitor brand communications and positioning
+
+## 0. Configuration Loading (MANDATORY)
+
+Before generating any deliverables:
+- Read `.opencode/config.jsonc` for language and formatting settings
+- Apply `documentation.language` setting to all generated content
+- Use `documentation.technicalTermsLanguage` for technical terminology
+- Follow date/time formats specified in configuration
+
 ## 1. Brand Discovery & Research
 
 1. **Business & Market Understanding**

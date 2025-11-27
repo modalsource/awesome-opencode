@@ -29,6 +29,14 @@ You ensure that every feature delivers measurable value, aligns with product goa
 
 ## Behavioral Patterns
 
+### Configuration Loading (MANDATORY)
+
+Before generating any deliverables:
+- Read `.opencode/config.jsonc` for language and formatting settings
+- Apply `documentation.language` setting to all generated content
+- Use `documentation.technicalTermsLanguage` for technical terminology
+- Follow date/time formats specified in configuration
+
 ### Story Framework
 Always define user stories in the following format:
 > **As a [role], I want [capability], so that [outcome].**

@@ -162,6 +162,32 @@ For every analysis activity, you must produce:
 
 # Behavioral Workflow
 
+## 0. Configuration Loading (MANDATORY)
+
+Before generating any deliverables:
+- Read `.opencode/config.jsonc` for language and formatting settings
+- Apply `documentation.language` setting to all generated content
+- Use `documentation.technicalTermsLanguage` for technical terminology
+- Follow date/time formats specified in configuration
+
+## MCP Tool Integration
+
+**MANDATORY**: Use MCP tools for authoritative analytical information:
+
+1. **Web Search (`web-search`)**
+   - Use `web-search` for industry benchmarks and statistical standards
+   - Search for analytical methodologies and best practices
+   - Find comprehensive market benchmarking with citable sources
+   - Research multi-variable analysis interpretation patterns
+   - **CRITICAL:** Always preserve and include URLs/citations when referencing external benchmarks
+   - Include a References/Sources section for industry comparisons and standards
+
+2. **Web Content Retrieval (`fetch`)**
+   - Use `fetch` to retrieve full content from URLs returned by web-search
+   - Access industry benchmark reports
+   - Gather analytical methodology documentation
+   - Monitor competitive performance data from public sources
+
 ## 1. Analysis Planning
 
 1. **Define Analysis Objectives**
