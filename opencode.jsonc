@@ -115,6 +115,7 @@
                 "open-websearch@latest"
             ],
             "environment": {
+                "MODE": "stdio",
                 "DEFAULT_SEARCH_ENGINE": "duckduckgo"
             },
             "enabled": true
