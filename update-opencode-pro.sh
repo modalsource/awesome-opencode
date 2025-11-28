@@ -203,7 +203,7 @@ fi
 
 # Commit
 echo ""
-read -p "$(echo -e ${YELLOW}Committare le modifiche? [y/N]:${NC} )" -n 1 -r
+read -p "$(echo -e "${YELLOW}Committare le modifiche? [y/N]:${NC} ")" -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     git add "$TARGET_FOLDER"
@@ -227,7 +227,7 @@ Updated: $(date +%Y-%m-%d)
     git commit -m "$COMMIT_MSG"
     echo -e "${GREEN}✅ Commit creato!${NC}"
     
-    read -p "$(echo -e ${YELLOW}Push? [y/N]:${NC} )" -n 1 -r
+    read -p "$(echo -e "${YELLOW}Push? [y/N]:${NC} ")" -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         git push
