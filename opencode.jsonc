@@ -4,6 +4,10 @@
         "session_child_cycle": "shift+ctrl+right",
         "session_child_cycle_reverse": "shift+ctrl+left"
     },
+    // Plugins Configuration
+    "plugin": [
+        "opencode-skills"
+    ],
     // MCP Servers Configuration
     // Note: MCP servers add to your context, so enable only what you need
     "mcp": {
