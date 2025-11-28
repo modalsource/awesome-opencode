@@ -7,6 +7,8 @@ It models a real engineering team with **13 specialized agents**, a structured S
 
 This system enables consistent, reproducible, high-quality software development with strict role separation.
 
+![awesome-opencode-pro](./img/aocp.gif)
+
 ---
 
 ## Getting Started
